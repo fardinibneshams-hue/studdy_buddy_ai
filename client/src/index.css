@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Playful School Palette */
+  --font-display: 'Fredoka', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Indigo Primary */
+  --primary: 239 84% 67%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Fun Accents */
+  --accent-pink: 326 100% 74%;
+  --accent-yellow: 45 100% 60%;
+  --accent-green: 152 76% 45%;
+  --accent-blue: 199 89% 48%;
+
+  --background: 210 20% 98%;
+  --foreground: 222 47% 11%;
+  
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 239 84% 67%;
+  
+  --radius: 1rem;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/20;
+    font-family: var(--font-body);
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-semibold tracking-tight;
+  }
+}
+
+/* Custom Scrollbar for a playful feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glass-panel {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-xl;
+}
+
+/* Markdown Styles for Summary */
+.prose h1, .prose h2, .prose h3 {
+  font-family: var(--font-display);
+  @apply text-primary font-bold mb-4 mt-6;
+}
+.prose p {
+  @apply mb-4 leading-relaxed text-slate-700;
+}
+.prose ul {
+  @apply list-disc list-inside mb-4 ml-4;
+}
+.prose li {
+  @apply mb-2;
+}
+.prose strong {
+  @apply text-primary font-bold;
+}
